@@ -1,0 +1,16 @@
+from matplotlib import pyplot as plt
+import numpy as np
+
+data = np.load("value_data.npy")
+n = len(data)
+
+x = np.arange(n)
+
+plt.xlabel("Training Epoch")
+plt.ylabel("Average Predicted Distance From Solve State")
+plt.plot(x, data, color="black")
+plt.xticks(x[::n//6], labels=np.arange(0, 3300, 500))
+plt.yticks(data[::n//6], labels=np.arange(0, 7))
+
+plt.savefig('training.png')
+
